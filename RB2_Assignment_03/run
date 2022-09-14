@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#move into the directory of the philosopher
+#export pathname="$pwd"
+cd philosopher/
+
+#executes the philosopher
+./philosopher
+
+#return to home
+cd

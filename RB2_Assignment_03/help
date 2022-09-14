@@ -1,0 +1,5 @@
+#!/bin/bash
+
+more -pd project_description.txt
+
+

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#puts the first argument, the path name destination, into a variabile
+export pathname="$1"
+
+
+#unzip the archive with sources
+unzip philosopher.zip -d $pathname
+
+#compile program using gcc compiler
+gcc $pathname/philosopher/philosopher.c -o $pathname/philosopher/philosopher -lpthread -lrt
+

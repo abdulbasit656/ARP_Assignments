@@ -1,0 +1,43 @@
+######## GROUP MEMBERS ########
+
+BASIT AKRAM		5161322
+RAJA FAROOQ DILSHAD	5245187
+
+######## PROBLEM STATEMENT ########
+'Dining Philosophers'
+Solve the problem with 5 processes, one per philosopher. Each philosopher is endless cycling, with randomly variable period (random "eating" time).
+A further process stores, using shared memory, the 5 forks.
+Each philosopher prints on the screen what is doing. The same is done for the forks status.
+Show that the solution never gets deadlocked, by making the philosophers to pick up
+simultaneously the 5 forks.
+
+
+######## INTRODUCTION ########
+The Dining Philosopher Problem states that K philosophers seated around a circular table with one chopstick between each pair of philosophers. There is one chopstick between each philosopher. A philosopher may eat if he can pick up the two chopsticks adjacent to him. One chopstick may be picked up by any one of its adjacent followers but not both.
+
+######## DESCRIPTION ########
+
+The program of dining philosophers is composed of 5 processes. each process handles the actions of one philosopher. logically this is the endless problem without and deadlock. each philosopher has to think, picks up chopstick to eat and putdown chopstick so the other philosopher can eat.
+Originally the Dining Philosophers problem was described as a semaphore/shared memory prototypical problem.
+
+Initialization:
+at start defining all the required header files, shared memory segments and semaphores to be used. and other variables.
+
+Functions:
+
+Random_time(): it creates a number between 1 - 5 to generate delay (in sec) as a eating time for each philosopher
+
+philosopher(): in each philosopher function there is a while loop so that the philosopher eats endlessly. in the loop sem_wait and sem_post system calls are used to lock and unlock the semaphore correspond to the fork so it cannot be used by other philosopher.
+
+main(): In main all the required semaphores and shared memory segments are created and also mapped with corresponding poiters to be used in each philosopher function code. 
+Also there are 5 child processes are created using fork() system call. each process further assigned/calls to the each philosopher code.
+
+
+
+
+
+
+
+
+
+
