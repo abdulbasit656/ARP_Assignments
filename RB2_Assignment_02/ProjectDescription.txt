@@ -1,0 +1,59 @@
+##### GROUP MEMBERS #####
+
+BASIT AKRAM		5161322
+RAJA FAROOQ DILSHAD	5245187
+
+##### PROBLEM STATEMENT #####
+
+G1, G2 are processes that generate short messages composed by a time stamp, the process identifier, and a little datum identifying the message itself.
+
+R is a non deterministic receiver of the messages, with the aim of receiving as many messages as possible without blocking the generators G1,G2 (as to say, allowing the Gi to execute at their maximum speed). R puts in a queue all received messages, in the same order they are received, adding each the actual time of reception. After the run is terminated (at least 1 million cycles of either G1 or G2), R transfers them to M. 
+
+M computes the bandwidth and analyzes data and outputs the result of the form:
+-> no. of G1|G2 cycles: xx
+-> no. of messages received: xx
+-> offset delay in G1 | G2 cycles (usec): xx
+-> average delay (latency) between generation and reception of messages (usec): xx
+-> estimated bandwidth between G and R (bit/s): xx
+
+Communication between G i and R, and R and M are made through pipes (*).
+
+##### INTRODUCTION #####
+
+##### NAMED PIPE #####
+Named pipes are given a name and exist as a file in a system, represented by an inode. 
+mkfifo ( char *path, mode_t access_mode)
+They can be used even among unrelated processes.
+They are bidirectional, which means the same FIFO can be read from as well as written into.
+
+
+##### UN-NAMED PIPE #####
+They do not have names, also referred to as anonymous and identified by their two file descriptors.
+pipe (int fd[2]);
+They can be used only between related processes.
+They are unidirectional, two separate pipes are needed for reading and writing.
+
+##### DESCRIPTION #####
+
+In 'RB2_Assignment_2.zip' archive there are five files, three shell scripts the src.zip archive and the ProjectDescription text file. 
+In the 'src.zip' archive there are two directories of named_pipe and unnamed_pipe which contains the .c files and also a .txt file with  informations about each process and exec folder to contain executables upon compiling.
+
+How to run:
+1) unzip the .zip archive in your system
+2) open the command terminal in same directory.
+3) execute the command with pathname to extract /src: 
+  -> ./install.sh <pathname>
+
+It will create a folder in provided pathname. inside which are located the folders that
+were in src.zip, there will also be a folder with the executables of each process.
+
+4) After that run the shell scrip run using the command:
+
+  -> ./run.sh
+this command will run nammed pipe related codes in one terminal and unnamed pipe related codes in second terminal.
+
+The second assignment is based on one of the methods of communication between processes. pipes are used for inter process communication on system level. there are two further types of pipes called named and unnamed pipes.
+The main problem have 4 processes in which two are the data sender and one is sender as well as receiver and one process is only receiver. 
+To implement the above inter process communication we used different system calls functions in c language. 
+
+(more information is provided in each process' related .txt files)
